@@ -4,3 +4,8 @@
 
 * add stub telegram bot
 * add SpringBoot sceleton project
+
+## 0.2.0-SNAPSHOT
+
+* implement Command pattern for handling commands in ANOCbot
+* add some useful commands like : start, stop, help
