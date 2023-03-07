@@ -14,11 +14,11 @@ class UnknownCommandTest extends AbstractCommandTest{
 
     @Override
     String getCommandMessage() {
-        return "/НеизвестнаКоманда";
+        return UNKNOWN_MESSAGE;
     }
 
     @Override
     String getCommandName() {
-        return UNKNOWN_MESSAGE;
+        return "/fdfdgfdd";
     }
 }
