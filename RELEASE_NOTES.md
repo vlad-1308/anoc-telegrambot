@@ -9,3 +9,7 @@
 
 * implement Command pattern for handling commands in ANOCbot
 * add some useful commands like : start, stop, help
+
+## 0.3.0-SNAPSHOT
+
+*   ANOC-13: added deployment process to the project
