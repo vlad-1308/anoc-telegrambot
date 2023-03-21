@@ -1,10 +1,26 @@
-version: "3.1"
+version: "2.15.1"
 
 services:
-  anoc:
+  anoctelegrambot:
+    depends_on:
+      - anoc-db
     build:
       context:  .
     environment:
-      - BOT_NAME=${BOT_NAME}
-      - BOT_TOKEN=${BOT_TOKEN}
-    restart: always
+      - BOT_NAME: ${BOT_NAME}
+      - BOT_TOKEN: ${BOT_TOKEN}
+      - BOT_DB_USERNAME: ${BOT_DB_USERNAME}
+      - BOT_DB_PASSWORD: ${BOT_DB_PASSWORD}
+    restart: unless-stopped
+  anoc-db:
+    image: mysql:8.0.32
+    restart: unless-stopped
+    environment:
+      MYSQL_USER: ${BOT_DB_USERNAME}
+      MYSQL_PASSWORD: ${BOT_DB_PASSWORD}
+      MYSQL_DATABASE: 'dev_anoc_db'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'

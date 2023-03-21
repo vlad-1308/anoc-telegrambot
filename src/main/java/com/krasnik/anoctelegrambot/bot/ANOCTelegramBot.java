@@ -1,7 +1,11 @@
 package com.krasnik.anoctelegrambot.bot;
 
 import com.krasnik.anoctelegrambot.command.CommandContainer;
+import com.krasnik.anoctelegrambot.repository.TelegramUserRepository;
 import com.krasnik.anoctelegrambot.services.SendBotMessageServiceImpl;
+import com.krasnik.anoctelegrambot.services.TelegramUserService;
+import com.krasnik.anoctelegrambot.services.TelegramUserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -16,8 +20,9 @@ public class ANOCTelegramBot extends TelegramLongPollingBot {
 
     private final CommandContainer commandContainer;
 
-    public ANOCTelegramBot() {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    @Autowired
+    public ANOCTelegramBot(TelegramUserService telegramUserService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
     }
 
     @Value("${bot.username}")
