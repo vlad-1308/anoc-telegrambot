@@ -12,4 +12,8 @@
 
 ## 0.3.0-SNAPSHOT
 
-*   ANOC-13: added deployment process to the project
+* ANOC-13: added deployment process to the project
+
+## 0.4.0-SNAPHOT
+
+* added repository layer

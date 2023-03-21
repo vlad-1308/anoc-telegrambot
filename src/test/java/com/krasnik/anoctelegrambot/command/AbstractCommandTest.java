@@ -3,6 +3,7 @@ package com.krasnik.anoctelegrambot.command;
 import com.krasnik.anoctelegrambot.bot.ANOCTelegramBot;
 import com.krasnik.anoctelegrambot.services.SendBotMessageService;
 import com.krasnik.anoctelegrambot.services.SendBotMessageServiceImpl;
+import com.krasnik.anoctelegrambot.services.TelegramUserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -16,6 +17,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 abstract class AbstractCommandTest {
 
     protected ANOCTelegramBot anocTelegramBot = Mockito.mock(ANOCTelegramBot.class);
+    protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(anocTelegramBot);
 
     abstract String getCommandName();
